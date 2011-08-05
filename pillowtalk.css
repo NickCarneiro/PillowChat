@@ -1,0 +1,159 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+body {
+  line-height: 1;
+  color: black;
+  background: white;
+}
+ol, ul {
+  list-style: none;
+}
+a img {
+  border: none;
+}
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+	padding-top:10px;
+    line-height: 1;
+  }
+html {
+
+}
+  body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.4em;
+	background: #eeeeee;
+	color: #333333;
+  }
+
+  /*
+  shadows inspired by Jérôme Gravel-Niquet's backbone todo demo
+  http://documentcloud.github.com/backbone/examples/todos/index.html
+  */
+#chat_container{
+	margin: 0px auto;
+	margin-top: 0px;
+	width: 555px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+	-o-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+	box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+}
+#chat_box {
+	display: block;
+	float: left;
+	width: 404px;
+	height: 400px;
+	background: #ffffff;
+	overflow-y:auto;
+	overflow-x:hidden;
+	margin-right: 0px;
+	border-right: 1px solid #eeeeee;
+	
+}
+
+#chat_input{
+	width: 330px;
+	margin-bottom:10px;
+}
+
+#chat_users{
+	display:block;
+	
+	
+	height: 400px;
+	width: 150px;
+	overflow-y:auto;
+	overflow-x:hidden;
+	border-left: 10px;
+	border:#eeeeee;
+	
+	background: #ffffff;
+}
+
+#chat_messages{
+	margin:10px;
+}
+#user_list{
+	margin: 10px;
+}
+
+#bottom_pane{
+	margin-top:1px;
+	background: #ffffff;
+	width: 555px;
+	
+}
+#bottom_controls{
+	padding: 10px 10px 10px 10px;
+}
+#user_list{
+	list-style:none;
+	text-align:left;
+}
+
+
+#header{
+	margin: 0px auto;
+	text-align:center;
+	width: 555px;
+	background:#ffffff;
+	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 0px 0;
+	-o-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 0px 0;
+	box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+	border-bottom: 1px solid #eeeeee;
+	padding-bottom:10px;
+}
+#chat_username_prompt{
+	width:555px;
+	margin: 0px auto;
+	background: #ffffff;
+	
+	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+	-o-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+	box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+}
+
+#prompt_controls{
+	padding:10px;
+	width: 300px;
+	margin: 0px auto;
+}
+.username{
+	font-weight: bold;
+}
+#footer{
+	width: 300px;
+	margin: 0px auto;
+	margin-top: 50px;
+	color: #999;
+	text-shadow: rgba(255, 255, 255, 0.8) 0 1px 0;
+	text-align: center;
+}
+#footer a{
+	color: #888;
+}
+fieldset{
+	border: none;
+}
