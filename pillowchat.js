@@ -1,6 +1,6 @@
 //The client side state and settings of the app are in this eponymous global
-var pillowtalk = {};
-pillowtalk.settings = {
+var pillowchat = {};
+pillowchat.settings = {
 	message_poll_frequency: 1000, //how often to grab new messages in milliseconds
 	user_poll_frequency: 5000 //how often to grab the user list in milliseconds
 	
@@ -8,7 +8,7 @@ pillowtalk.settings = {
 
 //The object format is just the output of couchdb
 //An example object is shown below.
-pillowtalk.state = {
+pillowchat.state = {
 	//all message objects from couch db are kept in the messages array
 	messages:[
 		{
@@ -32,9 +32,9 @@ function processNewMessages(response){
 	//save messages if timestamp is greater than the last stored message
 	for(var i = 0; i < response.length; i++){
 	
-		if(response[i].key > pillowtalk.state.lastTimestamp){
+		if(response[i].key > pillowchat.state.lastTimestamp){
 			
-			pillowtalk.state.messages.push(response[i]);
+			pillowchat.state.messages.push(response[i]);
 			
 		}
 	}
@@ -43,9 +43,9 @@ function processNewMessages(response){
 function getMessages(){
 	var json = JSON.stringify({ 
 		getMessages: true,
-		lastTimestamp: pillowtalk.state.lastTimestamp,
-		username: pillowtalk.state.username,
-		password: pillowtalk.state.password
+		lastTimestamp: pillowchat.state.lastTimestamp,
+		username: pillowchat.state.username,
+		password: pillowchat.state.password
 	});
 	$.post("chat.php", {
 		"json":json
@@ -63,25 +63,25 @@ function getMessages(){
 }
 
 function renderNewMessages(){
-	for(var i = 0; i < pillowtalk.state.messages.length; i++){
+	for(var i = 0; i < pillowchat.state.messages.length; i++){
 		
-		if(pillowtalk.state.messages[i].key > pillowtalk.state.lastTimestamp){
+		if(pillowchat.state.messages[i].key > pillowchat.state.lastTimestamp){
 			$("#chat_messages").append("<span class=\"username\" title=\"" + 
-				pillowtalk.state.messages[i].value.tripcode + "\">" + 
-				pillowtalk.state.messages[i].value.username
+				pillowchat.state.messages[i].value.tripcode + "\">" + 
+				pillowchat.state.messages[i].value.username
 				+ ": </span><span class=\"message\">"+ 
-				pillowtalk.state.messages[i].value.message
+				pillowchat.state.messages[i].value.message
 				+"</span><br />");
 			//scroll to newest messages
 			$("#chat_box").prop('scrollTop',$("#chat_box").prop('scrollHeight'));	
 		}
 		
 	}
-	pillowtalk.state.lastTimestamp = pillowtalk.state.messages[pillowtalk.state.messages.length - 1].key;
+	pillowchat.state.lastTimestamp = pillowchat.state.messages[pillowchat.state.messages.length - 1].key;
 	
 	//update last message received text
 	$("#last_received").text("Last activity " + 
-		jQuery.timeago(new Date(parseInt(pillowtalk.state.lastTimestamp))));
+		jQuery.timeago(new Date(parseInt(pillowchat.state.lastTimestamp))));
 	
 }
 function getUsers(){
@@ -125,10 +125,10 @@ function sendMessage(){
 		return;
 	}
 	var json = JSON.stringify({
-		username: pillowtalk.state.username,
-		password: pillowtalk.state.password,
+		username: pillowchat.state.username,
+		password: pillowchat.state.password,
 		message: $("#chat_input").val(),
-		lastTimestamp: pillowtalk.state.lastTimestamp
+		lastTimestamp: pillowchat.state.lastTimestamp
 	});
 	
 	$("#chat_input").val("");
@@ -156,28 +156,28 @@ function showChat(){
 		$("#name_error").text("Choose a username with only letters, numbers, and the underscore.")
 		return;
 	}
-	pillowtalk.state.username = $("#chat_username").val();
-	pillowtalk.state.password = $("#chat_password").val();
+	pillowchat.state.username = $("#chat_username").val();
+	pillowchat.state.password = $("#chat_password").val();
 	
 	
 	$("#chat_username_prompt").hide();
 	$("#chat_container").show();
 	$("#chat_input").focus();
-	pillowtalk.state.poll = true;
+	pillowchat.state.poll = true;
 }
 
 $(function(){
 	$("#chat_container").hide();
 	$("#chat_username").focus();
 	
-	$(document).everyTime(pillowtalk.settings.message_poll_frequency, function() {
-		if(pillowtalk.state.poll == true){	
+	$(document).everyTime(pillowchat.settings.message_poll_frequency, function() {
+		if(pillowchat.state.poll == true){	
 			getMessages();
 		}
 	});
 	
-	$(document).everyTime(pillowtalk.settings.user_poll_frequency, function() {
-		if(pillowtalk.state.poll == true){	
+	$(document).everyTime(pillowchat.settings.user_poll_frequency, function() {
+		if(pillowchat.state.poll == true){	
 			getUsers();
 		}
 	});

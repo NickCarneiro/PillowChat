@@ -3,18 +3,18 @@
 <html> 
  
   <head> 
-    <title>PillowTalk: A Simple jQuery/PHPillow/CouchDB Chat Room</title> 
+    <title>PillowChat: A Simple jQuery/PHPillow/CouchDB Chat Room</title> 
    
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 
 	<script src="jquery.timeago.js"></script>
 	<script src="jquery.timers-1.2.js.txt"></script>  
-	<link rel="stylesheet" href="pillowtalk.css" type="text/css" />
-	<script src="pillowtalk.js"></script> 
+	<link rel="stylesheet" href="pillowchat.css" type="text/css" />
+	<script src="pillowchat.js"></script> 
   </head> 
  
   <body> 
 <div id="header">
-	<h1>PillowTalk</h1><br />
+	<h1>PillowChat</h1><br />
 	<span>A Simple jQuery/PHPillow/CouchDB Chat Room</span>
 </div>
   <div id="chat_username_prompt">
